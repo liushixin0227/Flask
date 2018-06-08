@@ -1,0 +1,128 @@
+ * Serving Flask app "app_run" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+192.168.1.128 - - [02/Jun/2018 03:26:58] "GET / HTTP/1.1" 404 -
+192.168.1.128 - - [02/Jun/2018 03:26:58] "GET /favicon.ico HTTP/1.1" 404 -
+192.168.1.128 - - [02/Jun/2018 03:27:05] "GET /first HTTP/1.1" 301 -
+192.168.1.128 - - [02/Jun/2018 03:27:05] "GET /first/ HTTP/1.1" 200 -
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+192.168.1.128 - - [02/Jun/2018 03:38:23] "GET /first/ HTTP/1.1" 200 -
+192.168.1.128 - - [02/Jun/2018 03:38:30] "GET /first/next HTTP/1.1" 200 -
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+ * Detected change in '/home/pi/code/python/project/Flask/src/config.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+116.3.95.102 - - [02/Jun/2018 04:00:30] "GET / HTTP/1.1" 404 -
+116.3.95.102 - - [02/Jun/2018 04:00:30] "GET /favicon.ico HTTP/1.1" 404 -
+116.3.95.102 - - [02/Jun/2018 04:00:40] "GET /first HTTP/1.1" 301 -
+116.3.95.102 - - [02/Jun/2018 04:00:40] "GET /first/ HTTP/1.1" 200 -
+106.120.160.109 - - [02/Jun/2018 04:26:09] "GET /first/ HTTP/1.1" 200 -
+220.181.132.199 - - [02/Jun/2018 04:26:17] "GET /first/ HTTP/1.1" 200 -
+101.199.121.77 - - [02/Jun/2018 04:26:20] "GET / HTTP/1.1" 404 -
+210.209.93.156 - - [02/Jun/2018 04:26:22] "GET /first/ HTTP/1.1" 200 -
+101.199.112.51 - - [02/Jun/2018 04:26:34] "GET / HTTP/1.1" 404 -
+180.163.220.62 - - [02/Jun/2018 04:27:02] "GET / HTTP/1.1" 404 -
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+106.120.160.109 - - [02/Jun/2018 04:31:09] "GET / HTTP/1.1" 404 -
+101.199.110.107 - - [02/Jun/2018 04:31:55] "GET / HTTP/1.1" 404 -
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+37.255.224.238 - - [02/Jun/2018 04:39:39] "GET / HTTP/1.1" 404 -
+116.3.95.102 - - [02/Jun/2018 04:39:55] "GET / HTTP/1.1" 404 -
+116.3.95.102 - - [02/Jun/2018 04:40:05] "GET /first HTTP/1.1" 301 -
+116.3.95.102 - - [02/Jun/2018 04:40:05] "GET /first/ HTTP/1.1" 200 -
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+  File "app_run.py", line 11
+    response = make_response('This is First Flask Procedure!!',,)
+                                                               ^
+SyntaxError: invalid syntax
+ * Serving Flask app "app_run" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+116.3.95.102 - - [02/Jun/2018 04:51:17] "GET /first/ HTTP/1.1" 301 -
+116.3.95.102 - - [02/Jun/2018 04:51:59] "GET / HTTP/1.1" 404 -
+116.3.95.102 - - [02/Jun/2018 05:00:30] "GET /first HTTP/1.1" 301 -
+116.3.95.102 - - [02/Jun/2018 05:00:30] "GET /first/ HTTP/1.1" 301 -
+116.3.95.102 - - [02/Jun/2018 05:00:50] "GET / HTTP/1.1" 404 -
+116.3.95.102 - - [02/Jun/2018 05:01:09] "GET /first/next HTTP/1.1" 200 -
+85.93.170.155 - - [02/Jun/2018 05:13:54] "GET / HTTP/1.1" 404 -
+85.93.170.155 - - [02/Jun/2018 05:13:55] "GET /HNAP1/ HTTP/1.1" 404 -
+189.110.144.182 - - [02/Jun/2018 05:16:43] "GET / HTTP/1.1" 404 -
+41.60.237.124 - - [02/Jun/2018 05:37:27] "GET / HTTP/1.1" 404 -
+104.222.96.61 - - [02/Jun/2018 06:59:57] "GET /user/soapCaller.bs HTTP/1.1" 404 -
+80.82.70.187 - - [02/Jun/2018 07:48:21] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 -
+37.63.173.188 - - [02/Jun/2018 08:26:15] "GET / HTTP/1.1" 404 -
+125.25.57.48 - - [02/Jun/2018 08:39:40] "GET / HTTP/1.1" 404 -
+139.162.88.63 - - [02/Jun/2018 10:33:30] "GET http://clientapi.ipip.net/echo.php?info=1234567890 HTTP/1.1" 404 -
+156.0.238.83 - - [02/Jun/2018 10:50:59] "GET / HTTP/1.1" 404 -
+80.82.78.50 - - [02/Jun/2018 11:37:22] "GET http://www.baidu.com/cache/global/img/gs.gif HTTP/1.1" 404 -
+182.203.195.55 - - [02/Jun/2018 11:40:46] "GET / HTTP/1.1" 404 -
+202.43.154.162 - - [02/Jun/2018 12:14:07] "GET /manager/html HTTP/1.1" 404 -
+103.66.47.37 - - [02/Jun/2018 12:27:47] "GET / HTTP/1.1" 404 -
+31.184.194.109 - - [02/Jun/2018 12:38:26] "GET / HTTP/1.0" 404 -
+94.182.53.10 - - [02/Jun/2018 13:32:41] "GET / HTTP/1.1" 404 -
+101.199.108.120 - - [02/Jun/2018 13:46:33] "GET / HTTP/1.1" 404 -
+171.13.14.134 - - [02/Jun/2018 13:46:34] "GET / HTTP/1.1" 404 -
+220.181.132.195 - - [02/Jun/2018 13:46:37] "GET / HTTP/1.1" 404 -
+171.13.14.152 - - [02/Jun/2018 13:46:38] "GET / HTTP/1.1" 404 -
+104.192.74.31 - - [02/Jun/2018 13:51:43] "GET /robots.txt HTTP/1.1" 404 -
+104.192.74.31 - - [02/Jun/2018 13:51:43] "GET / HTTP/1.1" 404 -
+104.192.74.31 - - [02/Jun/2018 13:51:44] "GET / HTTP/1.1" 404 -
+123.179.131.0 - - [02/Jun/2018 14:22:46] "GET / HTTP/1.1" 404 -
+116.3.95.102 - - [02/Jun/2018 14:38:15] "GET /first/next HTTP/1.1" 200 -
+116.3.95.102 - - [02/Jun/2018 14:39:17] "GET /first/next HTTP/1.1" 200 -
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 356-140-391
+ * Detected change in '/home/pi/code/python/project/Flask/src/app_run.py', reloading
+ * Restarting with stat
+  File "app_run.py", line 14
+    'status code':
+                 ^
+SyntaxError: invalid syntax
