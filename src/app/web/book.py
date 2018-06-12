@@ -6,20 +6,24 @@
 # @File    : book.py
 # @Software: PyCharm
 from flask import jsonify, request
-from src.FishBook import FishBook
+from src.app.spider.FishBook import FishBook
+from src.app.forms.book import SearchForm
 from src.app.web import web
-from src.helper import is_isbn_or_key
+from src.app.libs.helper import is_isbn_or_key
 
 
 @web.route('/book/search')
 def search():
-    q = request.args['q']
-    page = request.args['page']
-    isbn_or_key = is_isbn_or_key(q)
-    if isbn_or_key == 'isbn':
-        result = FishBook.search_by_isbn(q)
+    form = SearchForm(request.args)
+    if form.validate():
+        q = form.q.data.strip()
+        page = form.page.data
+        isbn_or_key = is_isbn_or_key(q)
+        if isbn_or_key == 'isbn':
+            result = FishBook.search_by_isbn(q)
+        else:
+            result = FishBook.search_by_keyword(q, page)
+        return jsonify(result)
     else:
-        result = FishBook.search_by_keyword(q)
-    return jsonify(result)
-
+        return jsonify(form.errors)
 # app.add_url_rule('/first/', view_func=hello)

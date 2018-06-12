@@ -7,15 +7,23 @@
 # @Software: PyCharm
 from flask import Flask
 
+from src.app.models.book import db
+from src.app.web import web
+
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('config')
-    register_blueprint(app)
+    app.config.from_object('src.app.secure')
+    app.config.from_object('src.app.setting')
+    app.register_blueprint(web)
+
+    db.init_app(app)
+    with app.app_context():
+        db.create_all()
     return app
 
-
-def register_blueprint(app):
-    from src.app.web import web
-
-    app.register_blueprint(web)
+#
+# def register_blueprint(app):
+#     from src.app.web import web
+#
+#     app.register_blueprint(web)

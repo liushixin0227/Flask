@@ -6,7 +6,8 @@
 # @File    : FishBook.py
 # @Software: PyCharm
 
-from src.get_http import Http
+from src.app.libs.get_http import Http
+from flask import current_app
 
 
 class FishBook(object):
@@ -19,10 +20,12 @@ class FishBook(object):
         result = Http.get(url)
         return result
 
-
-
     @classmethod
-    def search_by_keyword(cls, keyword, count=15, start=0):
-        url = cls.keyword_url.format(keyword, count, start)
+    def search_by_keyword(cls, keyword, page=1):
+        url = cls.keyword_url.format(keyword, current_app.config['PRO_PAGE'], cls.calcurlate_start(page))
         result = Http.get(url)
         return result
+
+    @staticmethod
+    def calcurlate_start(page):
+        return (page - 1) * current_app.config['PRO_PAGE']
