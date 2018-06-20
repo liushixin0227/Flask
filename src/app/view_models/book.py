@@ -40,6 +40,7 @@ class BookViewModels(object):
             'publisher': book['publisher'],
             'pages': book['pages'] or '',
             'price': book['price'],
+            'author': book['author'],
             'summary': book['summary'] or '',
             'image': book['image'],
 
