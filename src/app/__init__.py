@@ -13,8 +13,8 @@ from src.app.web import web
 
 def create_app():
     app = Flask(__name__)
-    app.config.from_object('src.app.secure')
-    app.config.from_object('src.app.setting')
+    app.config.from_object('src.app.config.secure')
+    app.config.from_object('src.app.config.setting')
     app.register_blueprint(web)
 
     db.init_app(app)
