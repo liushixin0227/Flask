@@ -8,7 +8,7 @@
 from flask import jsonify, request
 from src.FishBook import FishBook
 from src.app.web import web
-from src.helper import is_isbn_or_key
+from src.app.libs.helper import is_isbn_or_key
 
 
 @web.route('/book/search')
