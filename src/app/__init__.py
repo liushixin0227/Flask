@@ -17,9 +17,9 @@ def create_app():
     app.config.from_object('src.app.config.setting')
     app.register_blueprint(web)
 
-    db.init_app(app)
-    with app.app_context():
-        db.create_all()
+    # db.init_app(app)
+    # with app.app_context():
+    #     db.create_all()
     return app
 
 #

@@ -7,42 +7,29 @@
 # @Software: PyCharm
 
 
-class BookViewModels(object):
+class BookViewModle(object):
+    def __init__(self, book):
+        self.title = book['title']
+        self.publisher = book['publisher']
+        self.author = '、'.join(book['author'])
+        self.image = book['image']
+        self.price = book['price']
+        self.summary = book['summary'] or ''
+        self.pages = book['pages'] or ''
 
-    @classmethod
-    def package_single(cls, data, keyword):
-        returned = {
-            'books': [],
-            'total': 0,
-            'keyword': keyword
-        }
-        if data:
-            returned['total'] = 1
-            returned['books'] = [cls.__cut_book_data(data)]
-        return returned
+    @property
+    def intro(self):
+        inters = filter(lambda x: True if x else False, [self.author, self.publisher, self.price])
+        return '/'.join(inters)
 
-    @classmethod
-    def package_collection(cls, data, keyword):
-        returned = {
-            'book': [],
-            'total': 0,
-            'keyword': keyword
-        }
-        if data:
-            returned['total'] = data['total']
-            returned['book'] = [cls.__cut_book_data(book) for book in data['books']]
-        return returned
 
-    @staticmethod
-    def __cut_book_data(book):
-        book = {
-            'title': book['title'],
-            'publisher': book['publisher'],
-            'pages': book['pages'] or '',
-            'price': book['price'],
-            'author': book['author'],
-            'summary': book['summary'] or '',
-            'image': book['image'],
+class BookCollection(object):
+    def __init__(self):
+        self.total = 0
+        self.books = []
+        self.keyword = ''
 
-        }
-        return book
+    def fill(self, FishBook, keyword):
+        self.total = FishBook.total
+        self.keyword = keyword
+        self.books = [BookViewModle(book) for book in FishBook.books]

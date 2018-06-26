@@ -7,6 +7,10 @@
 # @Software: PyCharm
 from flask import Blueprint
 
-web = Blueprint('web', __name__)
+web = Blueprint('web', __name__,template_folder='templates')
 from . import book
-# from . import user
+from . import auth
+from . import drift
+from . import gift
+from . import main
+from . import wish
