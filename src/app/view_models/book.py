@@ -13,6 +13,7 @@ class BookViewModle(object):
         self.publisher = book['publisher']
         self.author = '、'.join(book['author'])
         self.image = book['image']
+        self.isbn = book['isbn']
         self.price = book['price']
         self.summary = book['summary'] or ''
         self.pages = book['pages'] or ''

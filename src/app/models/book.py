@@ -1,25 +1,38 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Time    : 2018/6/11 16:58
-# @Author  : LiuShixin
-# @Site    : 
-# @File    : book.py
-# @Software: PyCharm
-from sqlalchemy import Column, Integer, String
-from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+import json
+from sqlalchemy import Column, String
+from sqlalchemy import Integer
+from src.app.models.base import Base
 
 
-class Book(db.Model):
+class Book(Base):
+    """
+        一些属性定义重复性比较大，元类可以解决这个问题
+    """
+    __tablename__ = 'book'
+
     id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(50), nullable=False)
-    author = Column(String(30), default='未知')
+    _author = Column('author', String(30), default='未名')
     binding = Column(String(20))
     publisher = Column(String(50))
     price = Column(String(20))
-    page = Column(Integer)
-    pubdata = Column(String(20))
+    pages = Column(Integer)
+    pubdate = Column(String(20))
     isbn = Column(String(15), nullable=False, unique=True)
     summary = Column(String(1000))
     image = Column(String(50))
+
+    @property
+    def author(self):
+        return self._author if not self._author else json.loads(self._author)
+
+    @author.setter
+    def author(self, value):
+        if not isinstance(value, str):
+            self._author = json.dumps(value, ensure_ascii=False)
+        else:
+            self._author = value
+
+    @property
+    def author_str(self):
+        return '' if not self._author else '、'.join(self.author)

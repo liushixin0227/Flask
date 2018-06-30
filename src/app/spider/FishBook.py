@@ -24,7 +24,8 @@ class FishBook(object):
         self.__fill_single(result)
 
     def search_by_keyword(self, keyword, page=1):
-        url = self.__class__.keyword_url.format(keyword, current_app.config['PRO_PAGE'], self.__class__.calcurlate_start(page))
+        url = self.__class__.keyword_url.format(keyword, current_app.config['PRO_PAGE'],
+                                                self.__class__.calcurlate_start(page))
         result = Http.get(url)
         self.__fill_collection(result)
 
@@ -41,3 +42,7 @@ class FishBook(object):
         if data:
             self.total = data['total']
             self.books = data['books']
+
+    @property
+    def first(self):
+        return self.books[0] if self.total >= 1 else None

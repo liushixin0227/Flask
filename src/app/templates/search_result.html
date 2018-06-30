@@ -26,7 +26,7 @@
                     <span class="title">{{ book.title }}</span>
                     {#                    <span>{{ [book.author | d(''), book.publisher | d('', true) , '￥' + book.price | d('')] | join(' / ') }}</span>#}
                     <span>{{ book.intro }}</span>
-                    <span class="summary">{{ book.summary | default('', true) }}</span>
+                    <span class="summary">{{ book.summary | default('空', true) }}</span>
                 </div>
             </a>
         </div>

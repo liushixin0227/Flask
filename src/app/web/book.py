@@ -5,19 +5,21 @@
 # @Site    : 
 # @File    : book.py
 # @Software: PyCharm
-import json
 
-from flask import jsonify, request, render_template, flash
-from src.app.spider.FishBook import FishBook
+from flask import request, render_template, flash
+from src.app.spider import FishBook
 from src.app.forms.book import SearchForm
-from src.app.view_models.book import BookCollection
+from src.app.view_models.book import BookCollection, BookViewModle
 from src.app.web import web
 from src.app.libs.helper import is_isbn_or_key
 
 
 @web.route('/book/<isbn>/detail')
 def book_detail(isbn):
-    pass
+    fishbook = FishBook()
+    fishbook.search_by_isbn(isbn)
+    book = BookViewModle(fishbook.first)
+    return render_template('book_detail.html', book=book, wishes=[], gifts=[])
 
 
 @web.route('/book/search')
