@@ -2,8 +2,14 @@ from flask_login import UserMixin
 from sqlalchemy import Column, Integer, String, Boolean, Float
 from werkzeug.security import generate_password_hash, check_password_hash
 
+from src.app.libs.helper import is_isbn_or_key
 from src.app.models.base import Base
 from src.app import login_manager
+from src.app.models.gift import Gift
+from src.app.models.wish import Wish
+from src.app.spider.FishBook import FishBook
+
+
 class User(UserMixin, Base):
     __tablename__ = 'user'
     # __bind_key__ = 'fisher'
@@ -40,6 +46,20 @@ class User(UserMixin, Base):
 
     def get_id(self):
         return self.id
+
+    def can_save_to_list(self,isbn):
+        if is_isbn_or_key(isbn) != 'isbn':
+            return False
+        fishbook = FishBook()
+        fishbook.search_by_isbn(isbn)
+        gifting = Gift.query.filter_by(uid=self.id,isbn=isbn,launched=False).first()
+        wishing = Wish.query.filter_by(uid=self.id,isbn=isbn,launched=False).first()
+        if not fishbook.first:
+            return False
+        if not gifting and not wishing:
+            return True
+        else:
+            return False
 
 
 @login_manager.user_loader

@@ -1,7 +1,9 @@
-from src.app.spider import FishBook
-from sqlalchemy import Column, String, Integer, ForeignKey, Boolean
+from flask import current_app
+from sqlalchemy import Column, String, Integer, ForeignKey, Boolean, desc, func
 from sqlalchemy.orm import relationship
-from src.app.models.base import Base
+from src.app.models.base import Base, db
+from src.app.models.wish import Wish
+from src.app.spider.FishBook import FishBook
 
 
 class Gift(Base):
@@ -17,17 +19,31 @@ class Gift(Base):
         if self.uid == uid:
             return True
 
+    @classmethod
+    def get_wish_count(cls, isbn_list):
+        wish_count_list = db.session.query(func.count(Wish.id), Wish.isbn).filter(
+            Wish.launched == False,
+            Wish.isbn.in_(isbn_list),
+            Wish.status == 1).all()
+        wish_count_dict = [{'count': w[0], 'isbn': w[1]} for w in wish_count_list]
+        return wish_count_dict
+
+    @classmethod
+    def get_user_gifts(cls, uid):
+        gifts = Gift.query.filter_by(launched=False, uid=uid).order_by(
+            desc(Gift.create_time)).all()
+        return gifts
+
     @property
     def book(self):
         fishbook = FishBook()
         fishbook.search_by_isbn(self.isbn)
-        return fishbook
+        return fishbook.first
 
-        # @classmethod
-        # @cache.memoize(timeout=600)
-        # def recent(cls):
-        #     gift_list = cls.query.filter_by(launched=False).order_by(
-        #         desc(Gift.create_time)).group_by(Gift.book_id).limit(
-        #         current_app.config['RECENT_BOOK_PER_PAGE']).all()
-        #     view_model = GiftsViewModel.recent(gift_list)
-        #     return view_model
+    @classmethod
+    def rencent(cls):
+        recent_gift = Gift.query.filter_by(launched=False).group_by(
+            Gift.isbn).order_by(
+            desc(Gift.create_time)).limit(
+            current_app.config['RECENT_BOOK_COUNT']).distinct().all()
+        return recent_gift

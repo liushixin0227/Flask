@@ -17,10 +17,13 @@ class BookViewModle(object):
         self.price = book['price']
         self.summary = book['summary'] or ''
         self.pages = book['pages'] or ''
+        self.pubdate = book['pubdate']
+        self.binding = book['binding']
 
     @property
     def intro(self):
-        inters = filter(lambda x: True if x else False, [self.author, self.publisher, self.price])
+        inters = filter(lambda x: True if x else False, [
+            self.author, self.publisher, self.price])
         return '/'.join(inters)
 
 
@@ -30,7 +33,7 @@ class BookCollection(object):
         self.books = []
         self.keyword = ''
 
-    def fill(self, FishBook, keyword):
-        self.total = FishBook.total
+    def fill(self, fishbook, keyword):
+        self.total = fishbook.total
         self.keyword = keyword
-        self.books = [BookViewModle(book) for book in FishBook.books]
+        self.books = [BookViewModle(book) for book in fishbook.books]

@@ -13,7 +13,7 @@ from flask_login import LoginManager
 login_manager = LoginManager()
 
 
-# 讲蓝图注册到核心对象app上
+# 将蓝图注册到核心对象app上
 def register_web_blueprint(app):
     from src.app.web import web
     app.register_blueprint(web)

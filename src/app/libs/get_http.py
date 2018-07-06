@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # @Time    : 2018/6/6 12:37
-# @Author  : Aries
+# @Author  : LiuShixin
 # @Site    : 
 # @File    : get_http.py
 # @Software: PyCharm

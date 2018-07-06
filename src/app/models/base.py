@@ -21,6 +21,7 @@ class SQLAlchemy(_SQLAlchemy):
                 raise e
 
 
+# 重写filter_by方法,
 class Query(BaseQuery):
     def filter_by(self, **kwargs):
         if 'status' not in kwargs.keys():

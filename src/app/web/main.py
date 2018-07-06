@@ -5,12 +5,18 @@
 # @Site    :
 # @File    : __init__.py
 # @Software: PyCharm
+from flask import render_template
+
+from src.app.models.gift import Gift
+from src.app.view_models.book import BookViewModle
 from . import web
 
 
 @web.route('/')
 def index():
-    return 'This is index'
+    recent_gifts = Gift.rencent()
+    books = [BookViewModle(gift.book) for gift in recent_gifts]
+    return render_template('index.html', recent=books)
 
 
 @web.route('/personal')

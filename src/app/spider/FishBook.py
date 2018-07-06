@@ -30,7 +30,7 @@ class FishBook(object):
         self.__fill_collection(result)
 
     @classmethod
-    def calcurlate_start(self, page):
+    def calcurlate_start(cls, page):
         return (page - 1) * current_app.config['PRO_PAGE']
 
     def __fill_single(self, data):
@@ -43,6 +43,7 @@ class FishBook(object):
             self.total = data['total']
             self.books = data['books']
 
+    # 判断是否查询到含有关键字的书
     @property
     def first(self):
         return self.books[0] if self.total >= 1 else None
