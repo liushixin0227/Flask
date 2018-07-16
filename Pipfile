@@ -11,6 +11,7 @@ cymysql = "*"
 enums = "*"
 flask-login = "*"
 requests = "*"
+flask-mail = "*"
 
 [dev-packages]
 

@@ -10,7 +10,6 @@ from collections import namedtuple
 from src.app.view_models.book import BookViewModle
 
 
-
 class MyGifts:
     def __init__(self, gift_of_mine, wish_count_list):
         self.gifts = []

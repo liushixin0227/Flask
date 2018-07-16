@@ -5,17 +5,23 @@
 # @Site    :
 # @File    : __init__.py
 # @Software: PyCharm
-from flask import current_app, flash, redirect, url_for
+from flask import current_app, flash, redirect, url_for, render_template
 from flask_login import current_user
 
 from src.app import db
 from src.app.models.wish import Wish
+from src.app.view_models.trade import MyTrades
+from src.app.view_models.wish import MyWishs
 from . import web
 
 
 @web.route('/my/wish')
 def my_wish():
-    pass
+    wishs_of_mine = Wish.get_user_wishs(current_user.id)
+    isbn_list = [gift.isbn for gift in wishs_of_mine]
+    gift_count_list = Wish.get_gift_count(isbn_list)
+    view_model = MyTrades(wishs_of_mine, gift_count_list)
+    return render_template('my_wish.html', wishes=view_model.trades)
 
 
 @web.route('/wish/book/<isbn>')

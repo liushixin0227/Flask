@@ -5,6 +5,8 @@
 # @Site    : 
 # @File    : trade.py
 # @Software: PyCharm
+from src.app.view_models.book import BookViewModle
+
 
 class TradeInfo:
     def __init__(self, goods):
@@ -26,3 +28,30 @@ class TradeInfo:
             time=time,
             id=single.id
         )
+
+
+class MyTrades:
+    def __init__(self, trade_of_mine, trade_count_list):
+        self.trades = []
+        self.__trade_of_mine = trade_of_mine
+        self.__trade_count_list = trade_count_list
+        self.trades = self.__parse()
+
+    def __parse(self):
+        trades = []
+        for trade in self.__trade_of_mine:
+            my_wish = self.__matching(trade)
+            trades.append(my_wish)
+        return trades
+
+    def __matching(self, trade):
+        count = 0
+        for trade_count in self.__trade_count_list:
+            if trade.isbn == trade_count['isbn']:
+                count = trade_count['count']
+        r = {
+            'trades_count': count,
+            'book': BookViewModle(trade.book),
+            'id': trade.id
+        }
+        return r

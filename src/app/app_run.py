@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # _*_ coding:utf-8 _*_
+
+import sys
+
+sys.path.append('/home/pi/code/python/project')
 from src.app import create_app
 
 app = create_app()

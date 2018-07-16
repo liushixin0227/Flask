@@ -6,11 +6,13 @@
 # @File    : __init__.py
 # @Software: PyCharm
 from flask import Flask
+from flask_mail import Mail
 
 from src.app.models.base import db
 from flask_login import LoginManager
 
 login_manager = LoginManager()
+mail = Mail()
 
 
 # 将蓝图注册到核心对象app上
@@ -25,6 +27,7 @@ def create_app():
     app.config.from_object('src.app.config.setting')
     register_web_blueprint(app)
     login_manager.init_app(app)
+    mail.init_app(app)
     login_manager.login_view = 'web.login'
     login_manager.login_message = '请先登录或注册'
 
