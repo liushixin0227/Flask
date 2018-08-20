@@ -1,11 +1,7 @@
 {
     "_meta": {
         "hash": {
-<<<<<<< Updated upstream
             "sha256": "eb22ab1ce758b6da6542ca6e9f598fff56bed2427d90a8e54425354f3ed25945"
-=======
-            "sha256": "0c008184a42c2fb3ee70248bc3f925510863cd2f95fc1f59aec7a6a7d91571f5"
->>>>>>> Stashed changes
         },
         "pipfile-spec": 6,
         "requires": {
@@ -22,17 +18,10 @@
     "default": {
         "certifi": {
             "hashes": [
-<<<<<<< Updated upstream
                 "sha256:13e698f54293db9f89122b0581843a782ad0934a4fe0172d2a980ba77fc61bb7",
                 "sha256:9fa520c1bacfb634fa7af20a76bcbd3d5fb390481724c597da32c719a7dca4b0"
             ],
             "version": "==2018.4.16"
-=======
-                "sha256:4c1d68a1408dd090d2f3a869aa94c3947cc1d967821d1ed303208c9f41f0f2f4",
-                "sha256:b6e8b28b2b7e771a41ecdd12d4d43262ecab52adebbafa42c77d6b57fb6ad3a4"
-            ],
-            "version": "==2018.8.13"
->>>>>>> Stashed changes
         },
         "chardet": {
             "hashes": [
@@ -55,7 +44,6 @@
             "index": "pypi",
             "version": "==0.9.12"
         },
-<<<<<<< Updated upstream
         "enums": {
             "hashes": [
                 "sha256:447960d14879efbfb49aeb8798be1b5eb71350bd7be61b8b6171214665516444",
@@ -64,8 +52,6 @@
             "index": "pypi",
             "version": "==0.0.2"
         },
-=======
->>>>>>> Stashed changes
         "flask": {
             "hashes": [
                 "sha256:2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48",
@@ -74,7 +60,6 @@
             "index": "pypi",
             "version": "==1.0.2"
         },
-<<<<<<< Updated upstream
         "flask-login": {
             "hashes": [
                 "sha256:c815c1ac7b3e35e2081685e389a665f2c74d7e077cb93cecabaea352da4752ec"
@@ -82,8 +67,6 @@
             "index": "pypi",
             "version": "==0.4.1"
         },
-=======
->>>>>>> Stashed changes
         "flask-sqlalchemy": {
             "hashes": [
                 "sha256:3bc0fac969dd8c0ace01b32060f0c729565293302f0c4269beed154b46bec50b",
@@ -128,25 +111,15 @@
         },
         "sqlalchemy": {
             "hashes": [
-<<<<<<< Updated upstream
                 "sha256:e21e5561a85dcdf16b8520ae4daec7401c5c24558e0ce004f9b60be75c4b6957"
             ],
             "version": "==1.2.9"
-=======
-                "sha256:72325e67fb85f6e9ad304c603d83626d1df684fdf0c7ab1f0352e71feeab69d8"
-            ],
-            "version": "==1.2.10"
->>>>>>> Stashed changes
         },
         "urllib3": {
             "hashes": [
                 "sha256:a68ac5e15e76e7e5dd2b8f94007233e01effe3e50e8daddf69acfd81cb686baf",
                 "sha256:b5725a0bd4ba422ab0e66e89e030c806576753ea3ee08554382c14e685d117b5"
             ],
-<<<<<<< Updated upstream
-=======
-            "markers": "python_version != '3.2.*' and python_version != '3.0.*' and python_version != '3.1.*' and python_version != '3.3.*' and python_version >= '2.6' and python_version < '4'",
->>>>>>> Stashed changes
             "version": "==1.23"
         },
         "werkzeug": {
