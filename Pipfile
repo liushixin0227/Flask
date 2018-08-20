@@ -8,10 +8,14 @@ flask = "*"
 wtforms = "*"
 flask-sqlalchemy = "*"
 cymysql = "*"
+<<<<<<< Updated upstream
 enums = "*"
 flask-login = "*"
 requests = "*"
 flask-mail = "*"
+=======
+requests = "*"
+>>>>>>> Stashed changes
 
 [dev-packages]
 
